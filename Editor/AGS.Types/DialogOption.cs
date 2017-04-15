@@ -13,7 +13,9 @@ namespace AGS.Types
         private string _text = string.Empty;
         private bool _show;
         private bool _say;
+#pragma warning disable 0414
         private short _entryPointOffset = -1;
+#pragma warning restore 0414
 
         public DialogOption()
         {
