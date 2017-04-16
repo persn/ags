@@ -12,7 +12,6 @@ namespace AGS.Editor.Components
         private const string STATS_REPORT_URL = @"http://www.adventuregamestudio.co.uk/clientstats.php";
         private const int STATS_SEND_INTERVAL_IN_DAYS = 30;
         private const string NET_FRAMEWORK_KEY_ROOT = @"SOFTWARE\Microsoft\NET Framework Setup\NDP\";
-        private Timer _timer;
         private int _screenWidth;
         private int _screenHeight;
         
@@ -23,7 +22,7 @@ namespace AGS.Editor.Components
             // retrieve them while the game is being tested full-screen
             _screenWidth = System.Windows.Forms.SystemInformation.PrimaryMonitorSize.Width;
             _screenHeight = System.Windows.Forms.SystemInformation.PrimaryMonitorSize.Height;
-            _timer = new Timer(new TimerCallback(timer_Callback), null, 120000, 240000);
+            new Timer(timer_Callback, null, 120000, 240000);
         }
 
         public override string ComponentID
