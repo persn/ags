@@ -325,10 +325,6 @@ namespace AGS.Editor.Components
         private bool AdjustHelpWindowSize()
         {
             IntPtr helpHandle = Process.GetCurrentProcess().MainWindowHandle; // get the Help window handle
-            if (helpHandle == null)
-            {
-                return false;
-            }
             MonitorInfo monitorInfo = new MonitorInfo();
             monitorInfo.cbSize = Marshal.SizeOf(monitorInfo);
             if (!GetMonitorInfo(MonitorFromWindow(helpHandle, MONITOR_DEFAULTTONEAREST), ref monitorInfo))
