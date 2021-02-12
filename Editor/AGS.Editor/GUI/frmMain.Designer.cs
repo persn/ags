@@ -160,7 +160,9 @@ namespace AGS.Editor
             this.pnlCallStack.PanelPane = null;
             this.pnlCallStack.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockBottom;
             this.pnlCallStack.Visible = false;
+#if !NO_GUI
             this.pnlCallStack.VisibleState = WeifenLuo.WinFormsUI.Docking.DockState.DockBottom;
+#endif
             // 
             // pnlFindResults
             // 
@@ -181,7 +183,9 @@ namespace AGS.Editor
             this.pnlFindResults.Results = null;
             this.pnlFindResults.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockBottom;
             this.pnlFindResults.Visible = false;
+#if !NO_GUI
             this.pnlFindResults.VisibleState = WeifenLuo.WinFormsUI.Docking.DockState.DockBottom;
+#endif
             // 
             // pnlOutput
             // 
@@ -202,12 +206,16 @@ namespace AGS.Editor
             this.pnlOutput.PanelPane = null;
             this.pnlOutput.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockBottom;
             this.pnlOutput.Visible = true;
+#if !NO_GUI
             this.pnlOutput.VisibleState = WeifenLuo.WinFormsUI.Docking.DockState.DockBottom;
+#endif
             // 
             // projectPanel
             // 
             this.projectPanel.DockPanel = this.mainContainer;
+#if !NO_GUI
             this.projectPanel.AllowDrop = true;
+#endif
             this.projectPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.projectPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.projectPanel.Location = new System.Drawing.Point(0, 0);
@@ -220,8 +228,10 @@ namespace AGS.Editor
             this.projectPanel.Pane = null;
             this.projectPanel.PanelPane = null;
             this.projectPanel.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockRight;
+#if !NO_GUI
             this.projectPanel.Visible = true;
             this.projectPanel.VisibleState = WeifenLuo.WinFormsUI.Docking.DockState.DockRight;
+#endif
             // 
             // propertiesPanel
             // 
@@ -240,7 +250,9 @@ namespace AGS.Editor
             this.propertiesPanel.PanelPane = null;
             this.propertiesPanel.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockRight;
             this.propertiesPanel.Visible = true;
+#if !NO_GUI
             this.propertiesPanel.VisibleState = WeifenLuo.WinFormsUI.Docking.DockState.DockRight;
+#endif
             // 
             // mainMenu
             // 
@@ -295,10 +307,9 @@ namespace AGS.Editor
             this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
-        #endregion
+#endregion
 
         internal WeifenLuo.WinFormsUI.Docking.DockPanel mainContainer;
         internal AGS.Editor.ProjectPanel projectPanel;

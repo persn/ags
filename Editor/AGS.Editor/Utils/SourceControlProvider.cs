@@ -1,3 +1,4 @@
+#if !NO_GUI
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -224,3 +225,4 @@ namespace AGS.Editor
         }
     }
 }
+#endif

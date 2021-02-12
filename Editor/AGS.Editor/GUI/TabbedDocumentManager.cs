@@ -172,9 +172,10 @@ namespace AGS.Editor
                 if (pane.Control.DockingContainer == null || pane.Control.DockingContainer.IsDisposed)
                 {
                     pane.Control.DockingContainer = new DockingContainer(pane.Control);                    
-                }                
+                }
+#if !NO_GUI
                 pane.Control.DockingContainer.Show(_dockPanel, dockData);
-
+#endif
                 pane.Control.DockingContainer.Focus();
                 pane.Control.WindowActivated();
             }

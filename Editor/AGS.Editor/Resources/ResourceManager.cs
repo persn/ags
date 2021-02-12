@@ -13,7 +13,11 @@ namespace AGS.Editor.Resources
 
         public static Icon GetIcon(string fileName)
         {
+#if NO_GUI
+            return new Icon(SystemIcons.Exclamation, 40, 40);
+                #else
             return new Icon(typeof(ResourceManager), fileName);
+#endif
         }
 
         public static Bitmap GetBitmap(string fileName)
@@ -28,11 +32,15 @@ namespace AGS.Editor.Resources
 
         public static string GetResourceAsString(string fileName)
         {
+#if NO_GUI
+            return "";
+#else
             Stream input = typeof(ResourceManager).Assembly.GetManifestResourceStream(DEFAULT_RESOURCE_PATH + fileName);
             byte[] rawData = new byte[input.Length];
             input.Read(rawData, 0, rawData.Length);
             input.Close();
             return System.Text.Encoding.ASCII.GetString(rawData);
+#endif
         }
 
         public static void CopyFileFromResourcesToDisk(string resourceFileName, string diskFileName)

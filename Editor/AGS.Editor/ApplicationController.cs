@@ -9,7 +9,7 @@ using AGS.Types;
 
 namespace AGS.Editor
 {
-    internal class ApplicationController
+    public class ApplicationController
     {
         private AGSEditor _agsEditor;
         private GUIController _guiController;
@@ -43,6 +43,8 @@ namespace AGS.Editor
             AGSColor.ColorMapper = new ColorMapper(_agsEditor);
             CreateComponents();
         }
+
+        public IAGSEditor AGSEditor => _pluginEditorController;
 
         private void _events_LoadedUserData(XmlNode rootNode)
         {
@@ -136,7 +138,9 @@ namespace AGS.Editor
             _componentController.AddComponent(new RoomsComponent(_guiController, _agsEditor));
             _componentController.AddComponent(new TranslationsComponent(_guiController, _agsEditor));
             _componentController.AddComponent(new SpeechComponent(_guiController, _agsEditor));
+#if !NO_GUI
             _componentController.AddComponent(new SourceControlComponent(_guiController, _agsEditor));
+#endif
             _componentController.AddComponent(new WelcomeComponent(_guiController, _agsEditor));
             //
             // Disabled until proper server is found to store these stats

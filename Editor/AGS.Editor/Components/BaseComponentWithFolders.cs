@@ -458,8 +458,10 @@ namespace AGS.Editor.Components
 
         public void RePopulateTreeView(string selectedNodeID)
         {
+#if !NO_GUI
             RePopulateTreeView();
             _guiController.ProjectTree.SelectNode(this, selectedNodeID);
+#endif
         }
 
         public void RePopulateTreeView()

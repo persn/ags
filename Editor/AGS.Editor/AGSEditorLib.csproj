@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;NO_GUI</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\*.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\*.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DockPanelSuite" Version="3.0.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AGS.Controls\AGS.Controls.csproj" />
+    <ProjectReference Include="..\AGS.CScript.Compiler\AGS.CScript.Compiler.csproj" />
+    <ProjectReference Include="..\AGS.Types\AGS.Types.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="IrrKlang">
+      <HintPath>..\References\irrKlang.NET4.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
