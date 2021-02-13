@@ -11,6 +11,10 @@
     <DefineConstants>TRACE;NO_GUI</DefineConstants>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;NO_GUI</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="Resources\*.ico" />
   </ItemGroup>
