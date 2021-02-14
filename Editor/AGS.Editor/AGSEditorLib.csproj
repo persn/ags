@@ -5,6 +5,7 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <RootNamespace>AGS.Editor</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -17,10 +18,16 @@
 
   <ItemGroup>
     <None Remove="Resources\*.ico" />
+    <None Remove="Resources\*.cur" />
+    <None Remove="Resources\*.png" />
+    <None Remove="Resources\*.sh" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\*.ico" />
+    <EmbeddedResource Include="Resources\*.cur" />
+    <EmbeddedResource Include="Resources\*.png" />
+    <EmbeddedResource Include="Resources\*.sh" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +45,21 @@
     <Reference Include="IrrKlang">
       <HintPath>..\References\irrKlang.NET4.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
