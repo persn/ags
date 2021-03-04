@@ -1789,7 +1789,7 @@ namespace AGS.Editor.Components
                     continue;
                 }
 
-                _maskCache[mask] = _nativeProxy.ExportAreaMask(_loadedRoom, mask);
+                _maskCache[mask] = new Bitmap(_loadedRoom.GetMaskFileName(mask));
             }
         }
 
@@ -1912,7 +1912,7 @@ namespace AGS.Editor.Components
                 palette.Entries[0] = Color.FromArgb(noArea.R, noArea.G, noArea.B);
                 mask.Palette = palette;
 
-                mask.Save(Path.Combine(UnloadedRoom.ROOM_DIRECTORY, $"{room.Number}", $"{type.ToString().ToLower()}.png"), ImageFormat.Png);
+                mask.Save(room.GetMaskFileName(type), ImageFormat.Png);
             }
         });
         #endregion
