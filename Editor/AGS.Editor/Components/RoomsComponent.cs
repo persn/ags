@@ -1521,7 +1521,7 @@ namespace AGS.Editor.Components
             }
 
             SaveImages();
-            _nativeProxy.SaveRoom(_loadedRoom);
+            _loadedRoom.ToXmlDocument().Save(_loadedRoom.DataFileName);
             _loadedRoom.Modified = false;
         }
 
@@ -1889,7 +1889,7 @@ namespace AGS.Editor.Components
 
         private Task UpgradeDataFromCrmToOpenFormatAsync(Room room) => Task.Run(() =>
         {
-            room.ToXmlDocument().Save(Path.Combine(UnloadedRoom.ROOM_DIRECTORY, $"{room.Number}", "data.xml"));
+            room.ToXmlDocument().Save(room.DataFileName);
         });
 
         private Task UpgradeBackgroundFromCrmToOpenFormatAsync(Room room, int i) => Task.Run(() =>
